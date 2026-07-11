@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* breakpoint */
+  --breakpoint-xs: 450px;
+
+  /* font */
+  --font-display: var(--font-league-gothic), sans-serif;
+  --font-title: var(--font-poppins), sans-serif;
+  --font-main: var(--font-roboto), sans-serif;
+
+  /* shadow */
+  --shadow-small: 0 5px 10px rgba(0, 0, 0, 0.12);
+  --shadow-medium: 0 8px 30px rgba(0, 0, 0, 0.12);
+
+  /* grid */
+  --grid-template-columns-16: repeat(16, minmax(0, 1fr));
+  --grid-column-span-16: span 16 / span 16;
+
+  /* font sizes */
+  --text-10xl: 164px;
+  --text-11xl: 180px;
+  --text-12xl: 228px;
+  --text-14xl: 224px;
+  --text-15xl: 262px;
+  --text-18xl: 420px;
+
+  /* custom colors */
+  --color-orange: #da8244;
+  --color-gold: #f8d983;
+  --color-gold-dark: #d0bb57;
+  --color-gray-3: #5a5a5a;
+  --color-blue-gray: #abb7b7;
+  --color-blue-gray-light: #c0cece;
+  --color-custom-beige: #f2d9a0;
+  --color-custom-beige-light: #ede4ce;
+  --color-accent-2: #eaeaea;
+  --color-accent-7: #333333;
+  --color-gray-1: #3c3c3c;
+  --color-bright-gold: #f5cc6a;
+  --color-gray-2: #222222;
+  --color-gray-4: #303030;
+  --color-gray-5: #aaaaaa;
+  --color-orange-2: #e68449;
+  --color-orange-3: #f1b161;
+  --color-gray-6: #ddd;
+  --color-teal-custom: #1abc9c;
+}
+
+@layer components {
+  .simple-3d-button {
+    box-shadow:
+      0 -4px 0 rgba(255, 255, 255, 0.2) inset,
+      0 -3px 0 rgba(0, 0, 0, 0.2) inset,
+      -1px 0 0 rgba(0, 0, 0, 0.2) inset,
+      1px 1px 0 rgba(0, 0, 0, 0.2) inset;
+  }
+
+  .simple-3d-button:active {
+    box-shadow: none;
+  }
+
+  .simple-3d-button-gradient {
+    box-shadow:
+      0 -6px 0 rgba(255, 255, 255, 0.3) inset,
+      0 -5px 0 rgba(0, 0, 0, 0.3) inset,
+      -1px 0 0 rgba(0, 0, 0, 0.3) inset,
+      1px 1px 0 rgba(0, 0, 0, 0.3) inset;
+    background-image: radial-gradient(
+      ellipse closest-side at 50% 50%,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0)
+    );
+  }
+
+  .simple-3d-button-gradient:active {
+    box-shadow: 0px -2px 2px rgba(0, 0, 0, 0.2) inset;
+  }
+}

@@ -1,0 +1,93 @@
+name: Pull Request
+
+on:
+  pull_request:
+    types:
+      - opened
+      - ready_for_review
+      - synchronize
+      - reopened
+    branches:
+      - develop
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+
+      - name: Restore npm cache
+        uses: actions/cache@v6
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-npm-${{ hashFiles('package-lock.json', '**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-npm-
+
+      - name: Restore node_modules cache
+        uses: actions/cache@v6
+        with:
+          path: |
+            node_modules
+            */node_modules
+            */*/node_modules
+          key: ${{ runner.os }}-node-modules-${{ hashFiles('package-lock.json', '**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-modules-
+
+      - name: Set environment variables
+        run: |
+          echo "UID=$(id -u)" >> $GITHUB_ENV
+          echo "GID=$(id -g)" >> $GITHUB_ENV
+          echo "PROJECT_NAME=hybrid-site-template" >> $GITHUB_ENV
+          echo "DOCKER_IMAGE=hybrid-site-template:latest" >> $GITHUB_ENV
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Building docker image
+        uses: docker/build-push-action@v7
+        with:
+          tags: hybrid-site-template:latest
+          file: Dockerfile
+          context: .
+          build-args: |
+            UID=${{ env.UID }}
+            GID=${{ env.GID }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          push: false
+          load: true
+
+      - name: Building project
+        run: |
+          make image
+          make dependencies
+          make build
+
+      - name: Tear down Docker
+        if: always()
+        run: make down
+
+  code-quality:
+    name: Code Quality
+    runs-on: ubuntu-24.04
+    container:
+      image: semgrep/semgrep
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Semgrep scan
+        run: |
+          BASELINE="${{ github.event.pull_request.base.sha }}"
+          semgrep scan \
+            --config p/ci \
+            --config p/javascript \
+            --baseline-commit "${BASELINE}" \
+            --metrics=off \
+            --error

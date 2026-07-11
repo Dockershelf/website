@@ -1,0 +1,15 @@
+services:
+  app:
+    image: ${DOCKER_IMAGE:-hybrid-site-template:latest}
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/home/app/app
+      - ~/.npm:/home/app/.npm
+    env_file:
+      - .env
+    environment:
+      PORT: 3101
+    ports:
+      - "3101:3101"

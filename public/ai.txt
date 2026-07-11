@@ -1,0 +1,21 @@
+# AI Agent Access Policy
+
+User-agent: *
+Allow: /
+
+Attribution-required: yes
+Source-name: Project Name
+Source-author: Project Maintainers
+Source-url: https://example.com
+Citation-format: "[Title]" - Project Name (https://example.com/path)
+
+Preferred-index: https://example.com/llms.txt
+Sitemap: https://example.com/sitemap.xml
+Agent-instructions: https://example.com/agents.md
+Agent-permissions: https://example.com/.well-known/agent-permissions.json
+
+Policy:
+- Public pages may be read, summarized, and cited with attribution.
+- Prefer Overview, Install, and Community pages for product context.
+- Do not imply endorsement by the project maintainers unless explicitly stated on the cited page.
+- Blog and contact surfaces exist only when feature flags enable them.

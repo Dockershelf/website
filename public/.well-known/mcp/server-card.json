@@ -1,0 +1,35 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/mcp-server-card/v1.json",
+  "version": "1.0",
+  "protocolVersion": "2025-06-18",
+  "serverInfo": {
+    "name": "Project Name",
+    "title": "Project Name — Read-only Agent API",
+    "version": "3.2.9"
+  },
+  "description": "Read-only discovery for Project Name. No authenticated or transactional tools.",
+  "documentationUrl": "https://example.com/agents.md",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://example.com/api/mcp"
+  },
+  "capabilities": {
+    "tools": {}
+  },
+  "authentication": {
+    "required": false,
+    "schemes": []
+  },
+  "tools": [
+    {
+      "name": "get_site_discovery",
+      "title": "Site discovery metadata",
+      "description": "Returns canonical discovery URLs for llms.txt, sitemap, feeds, API catalog, and MCP.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "$schema": "https://github.com/cloudflare/agent-skills-discovery-rfc/raw/v0.2.0/schemas/index.schema.json",
+  "skills": [
+    {
+      "name": "site-discovery",
+      "type": "skill-md",
+      "description": "Discover canonical Project Name surfaces — llms.txt, sitemap, API catalog, Agent Skills, and MCP.",
+      "url": "https://example.com/.well-known/agent-skills/site-discovery/SKILL.md",
+      "sha256": "3fa2f7b65b14f89a78e5bf5b57bf0849f34b9a40a36a703d51f8dc80980eb3b5"
+    },
+    {
+      "name": "citation",
+      "type": "skill-md",
+      "description": "Citation and attribution rules for Project Name content in AI answers.",
+      "url": "https://example.com/.well-known/agent-skills/citation/SKILL.md",
+      "sha256": "848080bda7147c99d3331421a086192e4a8d5d760a05b30545da5e6bb7e4aab7"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+# Cursor Cloud specific instructions
+
+Hybrid site template: a single Next.js 16 (App Router) + TypeScript + Tailwind app at the repo root. Landing is always on; blog (Neon + Better Auth) and contact (Resend) are feature-flagged. API routes cover contact, auth (when blog on), revalidation, and MCP/discovery. There is no separate backend service — only the Next.js dev server (port `3101`).
+
+## Environment layout
+
+- **Package manager:** npm (`package-lock.json`). Dependencies are installed by the startup update script (`npm install` / `npm ci`), so they should already be present.
+- The `Makefile` targets (`make serve`, `make lint`, `make test`, etc.) run **inside Docker**. On the host, use the `npm` scripts directly (see below).
+- Copy env before running: `cp .env.example .env`. Landing-only needs `SITE_*` and feature flags at `0`. Blog-on needs Neon + Better Auth + GitHub OAuth. Contact-on needs Resend + reCAPTCHA. Optional: Sentry, GA, Meta Pixel, Mailchimp, Sheets, Disqus.
+
+## Lint / test / run (host)
+
+- **Dev server:** `PORT=3101 npm run dev` → http://localhost:3101 (matches `docker-compose.yml` and `lib/site-config.ts` local URL).
+- **Lint:** `npm run lint` (ESLint).
+- **Format:** `npm run format` (Prettier write) or `npm run format:check` (check only).
+- **Type-check:** `npm run type-check` (`tsc --noEmit`) — this is what `make test` runs in Docker.
+- **Production build:** `npm run build` (runs discovery generation via `prebuild`).
+
+## Non-obvious gotchas
+
+- `make release-preflight` chains `lint`, `format`, and `test`; CI PR workflow builds the Docker image and runs a production build (`.github/workflows/pr.yml`).
+- Flag flips (`FEATURE_BLOG` / `FEATURE_CONTACT`) need discovery regen + redeploy or CDN purge; twin/discovery CDN TTL is ~1h (`s-maxage=3600`).
+- Blog-on without `DATABASE_URL` / Better Auth / GitHub env fails fast at module init. Empty `ADMIN_EMAIL_ALLOWLIST` denies all admin.
+- Sentry is wired via `@sentry/nextjs`; builds may warn if DSN-related env is missing — that is expected in a minimal local setup.

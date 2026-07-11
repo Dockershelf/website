@@ -1,0 +1,45 @@
+# Project Name
+
+> An open-source project. Replace this placeholder with your product description.
+
+This file is the preferred starting point for AI assistants, answer engines, and crawlers that need concise context about the site.
+
+## Key Information
+
+- Template-ready hybrid site: landing always on; blog and contact optional via feature flags.
+- Primary pages: Home, Overview, Install/Quickstart, Community/Contribute.
+- Operators configure identity through SITE_* and CANONICAL_SITE_URL environment variables.
+
+## Main Resources
+
+- [Overview](https://example.com/overview) — What the project is and who it is for.
+- [Install / Quickstart](https://example.com/install) — Placeholder install steps.
+- [Community](https://example.com/community) — How to contribute.
+- [Full Corpus (llms-full.txt)](https://example.com/llms-full.txt) — Single-request markdown snapshot of primary site surfaces.
+
+## Canonical Site Sections
+
+- Home: https://example.com/ — Product landing and primary navigation.
+- Overview: https://example.com/overview — Project pitch placeholder.
+- Install: https://example.com/install — Quickstart placeholder.
+- Community: https://example.com/community — Contribution placeholder.
+
+## Machine-Readable Discovery
+
+- Full corpus: https://example.com/llms-full.txt
+- XML sitemap: https://example.com/sitemap.xml
+- Robots policy: https://example.com/robots.txt
+- AI attribution policy: https://example.com/ai.txt
+- Agent instructions: https://example.com/agents.md
+- Agent permissions: https://example.com/.well-known/agent-permissions.json
+- API catalog (RFC 9727): https://example.com/.well-known/api-catalog
+- Agent skills index: https://example.com/.well-known/agent-skills/index.json
+- MCP server card: https://example.com/.well-known/mcp/server-card.json
+- MCP transport (read-only): https://example.com/api/mcp
+- Markdown negotiation: send `Accept: text/markdown` on canonical page URLs (e.g. `/`, `/overview`, `/install`) to receive markdown twins without the `.md` suffix
+
+## Content Use Guidance
+
+- Prefer canonical URLs from this file and the XML sitemap when citing the site.
+- Attribute content to the configured project name / maintainers from site identity.
+- Blog and contact surfaces are omitted from landing-only defaults until feature flags enable them.

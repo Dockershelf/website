@@ -1,0 +1,113 @@
+{
+  "metadata": {
+    "schema_version": "v1",
+    "name": "Project Name agent permissions",
+    "description": "Interaction policy for AI agents using this site.",
+    "last_updated": "2026-07-11",
+    "author": "Project Maintainers",
+    "contact": "maintainers@example.com"
+  },
+  "resource_rules": [
+    {
+      "verb": "read_content",
+      "selector": "body",
+      "allowed": true,
+      "modifiers": {
+        "rate_limit": {
+          "max_requests": 120,
+          "window_seconds": 3600
+        }
+      }
+    },
+    {
+      "verb": "follow_link",
+      "selector": "a[href]",
+      "allowed": true,
+      "modifiers": {
+        "rate_limit": {
+          "max_requests": 240,
+          "window_seconds": 3600
+        }
+      }
+    },
+    {
+      "verb": "submit_form",
+      "selector": "form",
+      "allowed": true,
+      "modifiers": {
+        "human_in_the_loop": true,
+        "rate_limit": {
+          "max_requests": 3,
+          "window_seconds": 3600
+        }
+      }
+    },
+    {
+      "verb": "click_element",
+      "selector": "button[type='submit'], input[type='submit']",
+      "allowed": true,
+      "modifiers": {
+        "human_in_the_loop": true,
+        "rate_limit": {
+          "max_requests": 3,
+          "window_seconds": 3600
+        }
+      }
+    }
+  ],
+  "action_guidelines": [
+    {
+      "directive": "SHOULD",
+      "description": "Prefer llms.txt, sitemap.xml, and MCP discovery before broad crawling."
+    },
+    {
+      "directive": "MUST",
+      "description": "Attribute cited public content to the project name and include the canonical URL."
+    },
+    {
+      "directive": "MUST NOT",
+      "description": "Submit contact forms or other transactional requests without explicit human confirmation."
+    },
+    {
+      "directive": "SHOULD NOT",
+      "description": "Use automated interactions to generate spam, unsolicited messages, or repeated form submissions."
+    }
+  ],
+  "api": [
+    {
+      "type": "llms_txt",
+      "endpoint": "https://example.com/llms.txt",
+      "description": "Curated AI-readable site index."
+    },
+    {
+      "type": "llms_full",
+      "endpoint": "https://example.com/llms-full.txt",
+      "description": "Single-request markdown snapshot of primary site surfaces."
+    },
+    {
+      "type": "sitemap",
+      "endpoint": "https://example.com/sitemap.xml",
+      "description": "Canonical XML sitemap."
+    },
+    {
+      "type": "api_catalog",
+      "endpoint": "https://example.com/.well-known/api-catalog",
+      "description": "RFC 9727 machine API catalog."
+    },
+    {
+      "type": "agent_skills",
+      "endpoint": "https://example.com/.well-known/agent-skills/index.json",
+      "description": "Agent Skills discovery index (v0.2.0)."
+    },
+    {
+      "type": "mcp_server_card",
+      "endpoint": "https://example.com/.well-known/mcp/server-card.json",
+      "description": "MCP server card (SEP-1649)."
+    },
+    {
+      "type": "mcp_transport",
+      "endpoint": "https://example.com/api/mcp",
+      "description": "Read-only MCP Streamable HTTP transport (site discovery tools)."
+    }
+  ]
+}

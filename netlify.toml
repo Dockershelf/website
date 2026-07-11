@@ -1,0 +1,51 @@
+# Netlify build config for the hybrid site template.
+# Next.js App Router uses Netlify's OpenNext adapter automatically —
+# do NOT pin @netlify/plugin-nextjs unless you intentionally opt out of updates.
+# Secrets: set in Netlify UI / CLI env, never commit real values.
+# Full placeholder list: .env.example
+
+[build]
+  command = "npm run build"
+  # Suggested by Netlify for Next.js; the OpenNext adapter manages runtime output.
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  # Optional: reduce client errors during rolling deploys (set in Netlify UI if preferred)
+  # NETLIFY_NEXT_SKEW_PROTECTION = "true"
+
+[dev]
+  # Aligns `netlify dev` with docker-compose / local PORT default
+  framework = "#custom"
+  command = "npm run dev"
+  targetPort = 3101
+  port = 8888
+
+# ---------------------------------------------------------------------------
+# Production env checklist (set in Netlify site settings)
+# ---------------------------------------------------------------------------
+# Always:
+#   SITE_* / CANONICAL_SITE_URL / NEXT_PUBLIC_SITE_URL / NEXT_PUBLIC_ENV_NAME=production
+#
+# Feature flags (both server + public mirrors):
+#   FEATURE_BLOG / NEXT_PUBLIC_FEATURE_BLOG
+#   FEATURE_CONTACT / NEXT_PUBLIC_FEATURE_CONTACT
+#
+# Blog (Neon + Better Auth + GitHub OAuth) when FEATURE_BLOG=1:
+#   DATABASE_URL (pooled) / DATABASE_URL_UNPOOLED (direct)
+#   BETTER_AUTH_SECRET / BETTER_AUTH_URL
+#   GITHUB_CLIENT_ID / GITHUB_CLIENT_SECRET / ADMIN_EMAIL_ALLOWLIST
+#
+# Contact (Resend + reCAPTCHA) when FEATURE_CONTACT=1:
+#   RESEND_API_KEY / EMAIL_FROM / EMAIL_FROM_NAME / CONTACT_TO
+#   NEXT_PUBLIC_RECAPTCHA_API_KEY / RECAPTCHA_API_SECRET / NEXT_PUBLIC_JWT_SECRET
+#
+# CDN revalidate + purge (required for blog admin publish/unpublish):
+#   REVALIDATE_SECRET
+#   NETLIFY_PURGE_TOKEN / NETLIFY_SITE_ID
+#   CLOUDFLARE_API_TOKEN / CLOUDFLARE_ZONE_ID (optional; Cloudflare DNS + tag purge)
+#
+# Monitoring / analytics / comments (optional):
+#   SENTRY_DSN / NEXT_PUBLIC_SENTRY_DSN / SENTRY_AUTH_TOKEN / SENTRY_ORG / SENTRY_PROJECT
+#   NEXT_PUBLIC_GA_MEASUREMENT_ID / NEXT_PUBLIC_META_PIXEL_ID
+#   NEXT_PUBLIC_DISQUS_SHORTNAME
