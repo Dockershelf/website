@@ -16,63 +16,63 @@ export type HomeGalleryImage = {
   alt: string;
 };
 
-/** Neutral landing gallery — replace paths in a fork with product screenshots. */
+/** Neutral landing gallery — replace paths with product screenshots when available. */
 export const homeGalleryImages: HomeGalleryImage[] = [
-  { src: "/images/home/placeholder-1.svg", alt: "Template preview panel 1" },
-  { src: "/images/home/placeholder-2.svg", alt: "Template preview panel 2" },
-  { src: "/images/home/placeholder-3.svg", alt: "Template preview panel 3" },
-  { src: "/images/home/placeholder-4.svg", alt: "Template preview panel 4" },
-  { src: "/images/home/placeholder-5.svg", alt: "Template preview panel 5" },
-  { src: "/images/home/placeholder-6.svg", alt: "Template preview panel 6" },
+  { src: "/images/home/placeholder-1.svg", alt: "Dockershelf preview panel 1" },
+  { src: "/images/home/placeholder-2.svg", alt: "Dockershelf preview panel 2" },
+  { src: "/images/home/placeholder-3.svg", alt: "Dockershelf preview panel 3" },
+  { src: "/images/home/placeholder-4.svg", alt: "Dockershelf preview panel 4" },
+  { src: "/images/home/placeholder-5.svg", alt: "Dockershelf preview panel 5" },
+  { src: "/images/home/placeholder-6.svg", alt: "Dockershelf preview panel 6" },
 ];
 
-export const philosophy = `${siteConfig.name} is an open-source project template. Replace this philosophy section with your product principles, design goals, and contribution values. Keep the landing story short and focused on what operators get out of the box.`;
+export const philosophy = `${siteConfig.name} collects universal, efficient, and slim Docker recipes into “shelves” for popular languages and tools. Images ship for amd64 and arm64, rebuild weekly through GitHub Actions, and stay available on Docker Hub.`;
 
 export const proofPoints: ProofPoint[] = [
   {
-    metric: "Landing always on",
-    project: "Home + Overview + Install + Community",
+    metric: "Weekly rebuilds",
+    project: "GitHub Actions → Docker Hub",
     context:
-      "because every fork needs a usable shell before optional blog or contact modules are enabled.",
+      "because base packages and language runtimes move; fresh, tested images keep your FROM lines trustworthy.",
   },
   {
-    metric: "Optional modules",
-    project: "FEATURE_BLOG / FEATURE_CONTACT",
+    metric: "Stable and unstable tracks",
+    project: "Debian stable vs sid",
     context:
-      "because not every site needs Neon, OAuth, or email — flags keep those surfaces out until configured.",
+      "because production wants security updates without surprise majors, while development wants the latest packages.",
   },
   {
-    metric: "Agent discovery",
-    project: "llms.txt + MCP + sitemap",
+    metric: "Shelves that match the stack",
+    project: "Debian, Python, Node, Go, LaTeX",
     context:
-      "because AI assistants should discover identity-driven defaults without personal portfolio residue.",
+      "because one collector covers the bases most teams reach for when they start a container.",
   },
 ];
 
 export const faqItems: FaqItem[] = [
   {
-    question: "What is this template for?",
+    question: "What is Dockershelf?",
     answer:
-      "A reusable hybrid site starter: always-on landing and OSS placeholder pages, with optional blog and contact modules behind feature flags.",
+      "An open-source collector of lightweight Docker images for Debian, Python, Node, Go, and LaTeX. Pull from Docker Hub or use them as base images in your own Dockerfiles.",
   },
   {
-    question: "How do I customize the site identity?",
+    question: "Stable or unstable — which should I use?",
     answer:
-      "Set SITE_NAME, SITE_DESCRIPTION, CANONICAL_SITE_URL, and related SITE_* variables in .env. Discovery generators and metadata read from lib/site-config.",
+      "Prefer stable (Debian stable–based) for production. Prefer unstable (Debian sid–based) when you need the newest language or package versions during development. Debian and LaTeX shelves follow their own tagging rules.",
   },
   {
-    question: "How do I enable the blog or contact form?",
+    question: "How do I pull an image?",
     answer:
-      "Set FEATURE_BLOG=1 and/or FEATURE_CONTACT=1 (plus NEXT_PUBLIC_* mirrors for nav). Blog uses Neon + admin UI; contact uses Resend when those modules are enabled.",
+      "Use docker pull dockershelf/<shelf>:<tag>, for example docker pull dockershelf/python:3.13-stable, then run it or FROM it in a Dockerfile.",
   },
   {
-    question: "Where do I start contributing?",
-    answer: `Visit ${siteConfig.url}/community for placeholder contribution guidance, then replace it with your project's real docs.`,
+    question: "Where do I contribute?",
+    answer: `Visit ${siteConfig.url}/community for Discord, issues, and contribution pointers, or open a PR on the Dockershelf GitHub repository.`,
   },
 ];
 
 export const sectionTitles = {
-  philosophy: "Why this template",
+  philosophy: "Why Dockershelf",
   proof: "What you get",
   faq: "Frequently asked questions",
 };

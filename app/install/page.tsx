@@ -23,19 +23,39 @@ export default function InstallPage() {
           <article className="flex flex-col w-full pt-15 pb-20">
             <Heading>Install / Quickstart</Heading>
             <SubHeading>
-              Placeholder quickstart for {siteConfig.name}. Replace with your
-              real install commands and prerequisites.
+              Pull a Dockershelf image from Docker Hub, or use it as a base in
+              your Dockerfile.
             </SubHeading>
             <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80">
               <ol className="list-decimal list-inside space-y-3">
-                <li>Clone the repository and install dependencies.</li>
                 <li>
-                  Copy <code className="text-lg">.env.example</code> to{" "}
-                  <code className="text-lg">.env</code> and set identity vars.
+                  Pull an image, for example{" "}
+                  <code className="text-lg">
+                    docker pull dockershelf/python:3.13-stable
+                  </code>
+                  .
                 </li>
                 <li>
-                  Run the local server, then open{" "}
-                  <code className="text-lg">http://localhost:3101</code>.
+                  Run it interactively with{" "}
+                  <code className="text-lg">
+                    docker run -it dockershelf/python:3.13-stable bash
+                  </code>
+                  , or add{" "}
+                  <code className="text-lg">
+                    FROM dockershelf/debian:bookworm
+                  </code>{" "}
+                  to your Dockerfile.
+                </li>
+                <li>
+                  To build locally, clone{" "}
+                  <code className="text-lg">
+                    https://github.com/Dockershelf/dockershelf
+                  </code>{" "}
+                  and run{" "}
+                  <code className="text-lg">
+                    bash build-image.sh &lt;image&gt;
+                  </code>
+                  .
                 </li>
               </ol>
               <p>

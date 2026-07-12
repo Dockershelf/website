@@ -3,11 +3,11 @@
 
 SHELL = bash -e
 export BASH_ENV := $(HOME)/.bash_env
-DOCKER_IMAGE ?= hybrid-site-template:latest
+DOCKER_IMAGE ?= dockershelf-website:latest
 img_hash = $(shell docker images -q $(DOCKER_IMAGE))
 
 VERSION_TYPE ?= patch
-APP_NAME ?= hybrid-site-template
+APP_NAME ?= dockershelf-website
 exec_on_docker = docker compose \
 	-p $(PROJECT_NAME) -f docker-compose.yml exec \
 	--user app app
@@ -65,7 +65,7 @@ format: start
 test: start
 	@$(exec_on_docker) npm run type-check
 
-PROJECT_NAME ?= hybrid-site-template
+PROJECT_NAME ?= dockershelf-website
 all_ps_hashes = $(shell docker ps -q)
 
 image:

@@ -10,10 +10,10 @@ Search published blog posts by title, body, or category. Drafts are never return
 ## HTTP API
 
 ```
-GET https://example.com/api/search-posts?q={query}
+GET https://dockershelf.com/api/search-posts?q={query}
 ```
 
-Replace `https://example.com` with the site canonical URL (`CANONICAL_SITE_URL`).
+Replace `https://dockershelf.com` with the site canonical URL (`CANONICAL_SITE_URL`).
 
 ## Contract (Neon DTO)
 
@@ -45,7 +45,7 @@ Each item is a Neon `PublicPostSummary`:
 
 ## MCP
 
-The MCP tool `search_blog_posts` exposes the same read-only semantics at `https://example.com/api/mcp`. MCP may project a compact `{ title, slug, metadata: { teaser, category, published_at } }` view for agents; the HTTP API returns the flat Neon DTO above.
+The MCP tool `search_blog_posts` exposes the same read-only semantics at `https://dockershelf.com/api/mcp`. MCP may project a compact `{ title, slug, metadata: { teaser, category, published_at } }` view for agents; the HTTP API returns the flat Neon DTO above.
 
 This skill and the MCP blog tools are registered only when `FEATURE_BLOG=1` (after regenerate + redeploy — see `agents.md`).
 

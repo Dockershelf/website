@@ -25,12 +25,21 @@ export default function CommunityPage() {
           <article className="flex flex-col w-full pt-15 pb-20">
             <Heading>Community / Contribute</Heading>
             <SubHeading>
-              Placeholder community guide for {siteConfig.name}. Point
-              contributors to issues, chat, and contribution docs.
+              Join Discord, open issues, or send pull requests to keep the
+              shelves useful.
             </SubHeading>
             <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80">
               <p>
-                Open an issue or pull request on{" "}
+                Chat on{" "}
+                <a
+                  href="https://discord.gg/4Wc7xphH5e"
+                  target="_blank"
+                  rel="nofollow noreferrer"
+                  className="underline hover:text-black"
+                >
+                  Discord
+                </a>
+                , or open an issue or pull request on{" "}
                 <a
                   href={`https://github.com/${github}`}
                   target="_blank"
@@ -39,8 +48,25 @@ export default function CommunityPage() {
                 >
                   GitHub
                 </a>
-                . Replace this copy with your CODE_OF_CONDUCT and contributing
-                guide links.
+                . Read{" "}
+                <a
+                  href={`https://github.com/${github}/blob/develop/CONTRIBUTING.md`}
+                  target="_blank"
+                  rel="nofollow noreferrer"
+                  className="underline hover:text-black"
+                >
+                  CONTRIBUTING.md
+                </a>{" "}
+                and the{" "}
+                <a
+                  href={`https://github.com/${github}/blob/develop/CLA.md`}
+                  target="_blank"
+                  rel="nofollow noreferrer"
+                  className="underline hover:text-black"
+                >
+                  CLA
+                </a>{" "}
+                before contributing.
               </p>
               <p>
                 Back to the{" "}

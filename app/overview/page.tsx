@@ -23,15 +23,15 @@ export default function OverviewPage() {
           <article className="flex flex-col w-full pt-15 pb-20">
             <Heading>Overview</Heading>
             <SubHeading>
-              {siteConfig.name} is an open-source project. Replace this
-              placeholder with your product pitch, audience, and core value
-              proposition.
+              {siteConfig.name} is a collector of universal, efficient, and slim
+              Docker recipes — shelves for Debian, Python, Node, Go, and LaTeX.
             </SubHeading>
             <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80">
               <p>
-                This page ships as a template stub so forks can ship a landing
-                shell before writing real docs. Keep the story short: problem,
-                approach, and why the project exists.
+                Images rebuild and test weekly via GitHub Actions, publish to
+                Docker Hub, and target amd64 and arm64. Most shelves offer
+                stable tracks (Debian stable — suited to production) and
+                unstable tracks (Debian sid — suited to development).
               </p>
               <p>
                 Next: follow the{" "}

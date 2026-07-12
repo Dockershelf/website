@@ -4,15 +4,15 @@ User-agent: *
 Allow: /
 
 Attribution-required: yes
-Source-name: Project Name
-Source-author: Project Maintainers
-Source-url: https://example.com
-Citation-format: "[Title]" - Project Name (https://example.com/path)
+Source-name: Dockershelf
+Source-author: Luis Alejandro
+Source-url: https://dockershelf.com
+Citation-format: "[Title]" - Dockershelf (https://dockershelf.com/path)
 
-Preferred-index: https://example.com/llms.txt
-Sitemap: https://example.com/sitemap.xml
-Agent-instructions: https://example.com/agents.md
-Agent-permissions: https://example.com/.well-known/agent-permissions.json
+Preferred-index: https://dockershelf.com/llms.txt
+Sitemap: https://dockershelf.com/sitemap.xml
+Agent-instructions: https://dockershelf.com/agents.md
+Agent-permissions: https://dockershelf.com/.well-known/agent-permissions.json
 
 Policy:
 - Public pages may be read, summarized, and cited with attribution.

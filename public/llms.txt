@@ -1,4 +1,4 @@
-# Project Name
+# Dockershelf
 
 > An open-source project. Replace this placeholder with your product description.
 
@@ -12,30 +12,30 @@ This file is the preferred starting point for AI assistants, answer engines, and
 
 ## Main Resources
 
-- [Overview](https://example.com/overview) — What the project is and who it is for.
-- [Install / Quickstart](https://example.com/install) — Placeholder install steps.
-- [Community](https://example.com/community) — How to contribute.
-- [Full Corpus (llms-full.txt)](https://example.com/llms-full.txt) — Single-request markdown snapshot of primary site surfaces.
+- [Overview](https://dockershelf.com/overview) — What the project is and who it is for.
+- [Install / Quickstart](https://dockershelf.com/install) — Pull or FROM Dockershelf images.
+- [Community](https://dockershelf.com/community) — Discord, GitHub issues, and contribution guide.
+- [Full Corpus (llms-full.txt)](https://dockershelf.com/llms-full.txt) — Single-request markdown snapshot of primary site surfaces.
 
 ## Canonical Site Sections
 
-- Home: https://example.com/ — Product landing and primary navigation.
-- Overview: https://example.com/overview — Project pitch placeholder.
-- Install: https://example.com/install — Quickstart placeholder.
-- Community: https://example.com/community — Contribution placeholder.
+- Home: https://dockershelf.com/ — Product landing and primary navigation.
+- Overview: https://dockershelf.com/overview — Product pitch and audience.
+- Install: https://dockershelf.com/install — Pull, run, or FROM images; build locally.
+- Community: https://dockershelf.com/community — Discord, GitHub, CONTRIBUTING, CLA.
 
 ## Machine-Readable Discovery
 
-- Full corpus: https://example.com/llms-full.txt
-- XML sitemap: https://example.com/sitemap.xml
-- Robots policy: https://example.com/robots.txt
-- AI attribution policy: https://example.com/ai.txt
-- Agent instructions: https://example.com/agents.md
-- Agent permissions: https://example.com/.well-known/agent-permissions.json
-- API catalog (RFC 9727): https://example.com/.well-known/api-catalog
-- Agent skills index: https://example.com/.well-known/agent-skills/index.json
-- MCP server card: https://example.com/.well-known/mcp/server-card.json
-- MCP transport (read-only): https://example.com/api/mcp
+- Full corpus: https://dockershelf.com/llms-full.txt
+- XML sitemap: https://dockershelf.com/sitemap.xml
+- Robots policy: https://dockershelf.com/robots.txt
+- AI attribution policy: https://dockershelf.com/ai.txt
+- Agent instructions: https://dockershelf.com/agents.md
+- Agent permissions: https://dockershelf.com/.well-known/agent-permissions.json
+- API catalog (RFC 9727): https://dockershelf.com/.well-known/api-catalog
+- Agent skills index: https://dockershelf.com/.well-known/agent-skills/index.json
+- MCP server card: https://dockershelf.com/.well-known/mcp/server-card.json
+- MCP transport (read-only): https://dockershelf.com/api/mcp
 - Markdown negotiation: send `Accept: text/markdown` on canonical page URLs (e.g. `/`, `/overview`, `/install`) to receive markdown twins without the `.md` suffix
 
 ## Content Use Guidance

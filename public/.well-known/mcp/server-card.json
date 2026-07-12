@@ -3,15 +3,15 @@
   "version": "1.0",
   "protocolVersion": "2025-06-18",
   "serverInfo": {
-    "name": "Project Name",
-    "title": "Project Name — Read-only Agent API",
+    "name": "Dockershelf",
+    "title": "Dockershelf — Read-only Agent API",
     "version": "3.2.9"
   },
-  "description": "Read-only discovery for Project Name. No authenticated or transactional tools.",
-  "documentationUrl": "https://example.com/agents.md",
+  "description": "Read-only discovery for Dockershelf. No authenticated or transactional tools.",
+  "documentationUrl": "https://dockershelf.com/agents.md",
   "transport": {
     "type": "streamable-http",
-    "endpoint": "https://example.com/api/mcp"
+    "endpoint": "https://dockershelf.com/api/mcp"
   },
   "capabilities": {
     "tools": {}

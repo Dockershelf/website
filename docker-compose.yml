@@ -1,6 +1,6 @@
 services:
   app:
-    image: ${DOCKER_IMAGE:-hybrid-site-template:latest}
+    image: ${DOCKER_IMAGE:-dockershelf-website:latest}
     build:
       context: .
       dockerfile: Dockerfile

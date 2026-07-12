@@ -1,6 +1,6 @@
 {
-    "name": "Project Name",
-    "short_name": "Project Name",
+    "name": "Dockershelf",
+    "short_name": "Dockershelf",
     "icons": [
         {
             "src": "/favicon/android-chrome-192x192.png",

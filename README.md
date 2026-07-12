@@ -1,6 +1,6 @@
-# Hybrid site template
+# Dockershelf website
 
-Reusable Next.js starter: always-on marketing landing, optional Neon-backed blog with GitHub OAuth admin, optional contact via Resend. AI/LLM discovery and CDN cache headers stay parametrized by site identity and feature flags.
+Marketing site for [Dockershelf](https://github.com/Dockershelf/dockershelf) — lightweight Docker images for Debian, Python, Node, Go, and LaTeX. Built from the hybrid site template: always-on landing, optional Neon-backed blog with GitHub OAuth admin, optional contact via Resend. AI/LLM discovery and CDN cache headers stay parametrized by site identity and feature flags.
 
 Current version: 3.2.9
 
@@ -128,7 +128,7 @@ make serve
 
 App: [http://localhost:3101](http://localhost:3101). `make console` opens a shell in the app container.
 
-Override image name with `DOCKER_IMAGE` and compose project with `PROJECT_NAME` (defaults: `hybrid-site-template`). Container user is `app` with home `/home/app/app`.
+Override image name with `DOCKER_IMAGE` and compose project with `PROJECT_NAME` (defaults: `dockershelf-website`). Container user is `app` with home `/home/app/app`.
 
 ### Host commands (npm)
 

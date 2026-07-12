@@ -1,1 +1,1 @@
-Hybrid site template built with Next.js, TypeScript, and Tailwind CSS. Landing page is always on; blog (Neon + Better Auth) and contact (Resend) are feature-flagged. Deploy with your own `SITE_*` identity and optional integrations.
+Dockershelf website built with Next.js, TypeScript, and Tailwind CSS. Landing page is always on; blog (Neon + Better Auth) and contact (Resend) are feature-flagged. Identity comes from `SITE_*` env vars; optional integrations stay off until configured.

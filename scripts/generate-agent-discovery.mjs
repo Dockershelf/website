@@ -11,8 +11,8 @@ const ROOT = process.cwd();
 const CANONICAL_URL =
   process.env.CANONICAL_SITE_URL ||
   process.env.NEXT_PUBLIC_SITE_URL ||
-  "https://example.com";
-const SITE_NAME = process.env.SITE_NAME || "Project Name";
+  "https://dockershelf.com";
+const SITE_NAME = process.env.SITE_NAME || "Dockershelf";
 const FEATURE_BLOG = process.env.FEATURE_BLOG === "1";
 
 const AGENT_SKILLS_INDEX_SCHEMA =

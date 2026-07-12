@@ -1,11 +1,11 @@
 {
   "metadata": {
     "schema_version": "v1",
-    "name": "Project Name agent permissions",
+    "name": "Dockershelf agent permissions",
     "description": "Interaction policy for AI agents using this site.",
     "last_updated": "2026-07-11",
-    "author": "Project Maintainers",
-    "contact": "maintainers@example.com"
+    "author": "Luis Alejandro",
+    "contact": "luis@luisalejandro.org"
   },
   "resource_rules": [
     {
@@ -76,37 +76,37 @@
   "api": [
     {
       "type": "llms_txt",
-      "endpoint": "https://example.com/llms.txt",
+      "endpoint": "https://dockershelf.com/llms.txt",
       "description": "Curated AI-readable site index."
     },
     {
       "type": "llms_full",
-      "endpoint": "https://example.com/llms-full.txt",
+      "endpoint": "https://dockershelf.com/llms-full.txt",
       "description": "Single-request markdown snapshot of primary site surfaces."
     },
     {
       "type": "sitemap",
-      "endpoint": "https://example.com/sitemap.xml",
+      "endpoint": "https://dockershelf.com/sitemap.xml",
       "description": "Canonical XML sitemap."
     },
     {
       "type": "api_catalog",
-      "endpoint": "https://example.com/.well-known/api-catalog",
+      "endpoint": "https://dockershelf.com/.well-known/api-catalog",
       "description": "RFC 9727 machine API catalog."
     },
     {
       "type": "agent_skills",
-      "endpoint": "https://example.com/.well-known/agent-skills/index.json",
+      "endpoint": "https://dockershelf.com/.well-known/agent-skills/index.json",
       "description": "Agent Skills discovery index (v0.2.0)."
     },
     {
       "type": "mcp_server_card",
-      "endpoint": "https://example.com/.well-known/mcp/server-card.json",
+      "endpoint": "https://dockershelf.com/.well-known/mcp/server-card.json",
       "description": "MCP server card (SEP-1649)."
     },
     {
       "type": "mcp_transport",
-      "endpoint": "https://example.com/api/mcp",
+      "endpoint": "https://dockershelf.com/api/mcp",
       "description": "Read-only MCP Streamable HTTP transport (site discovery tools)."
     }
   ]

@@ -1,3 +1,3 @@
-Project Name is an open-source project template. Replace this home twin with your product pitch.
+Dockershelf is a collector of universal, efficient, and slim Docker recipes. Shelves cover Debian, Python, Node, Go, and LaTeX. Images rebuild weekly via GitHub Actions and publish to Docker Hub for amd64 and arm64.
 
-The landing shell always includes Overview, Install/Quickstart, and Community/Contribute pages. Blog and contact modules are optional behind feature flags.
+Start with Overview for product context, Install/Quickstart to pull or FROM an image, and Community/Contribute for Discord and GitHub. Blog and contact modules stay off until feature flags are enabled.
