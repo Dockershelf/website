@@ -41,6 +41,10 @@ jobs:
           echo "PROJECT_NAME=hybrid-site-template" >> $GITHUB_ENV
           echo "DOCKER_IMAGE=hybrid-site-template:latest" >> $GITHUB_ENV
 
+      - name: Fix cache ownership
+        run: |
+          sudo chown -R $(id -u):$(id -g) ~/.npm node_modules */node_modules */*/node_modules 2>/dev/null || true
+
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v4
 
