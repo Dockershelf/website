@@ -15,7 +15,6 @@ import StyledLink from "@components/common/StyledLink";
 import ButtonBar from "@components/Home/ButtonBar";
 import { HomeContentSections } from "@components/Home/HomeContentSections";
 
-
 export const metadata: Metadata = {
   title: siteConfig.name,
   description: siteConfig.description,
