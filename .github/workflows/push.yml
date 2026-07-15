@@ -58,6 +58,12 @@ jobs:
           push: false
           load: true
 
+      - name: Prepare CI environment file
+        run: |
+          if [ -f .env.example ]; then
+            cp .env.example .env
+          fi
+
       - name: Building project
         run: |
           make image
