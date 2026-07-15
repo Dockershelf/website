@@ -106,10 +106,7 @@ export async function updatePostAction(
           slug: existing.slug,
           category: existing.category,
         });
-      } else if (
-        existing.category &&
-        existing.category !== post.category
-      ) {
+      } else if (existing.category && existing.category !== post.category) {
         // Same slug, category changed — purge previous category path too.
         await revalidateAfterPostChange({
           slug: post.slug,

@@ -123,146 +123,146 @@ const Contact = ({ dark }: { dark?: boolean }) => {
         className={cn("pb-0", dark ? "!bg-gray-5" : "")}
       >
         <div className="w-full max-w-7xl mx-auto px-12">
-        <Link href="/" className="block mx-auto w-fit">
-          <Image
-            alt=""
-            className="mx-auto"
-            src="/images/logomin.svg"
-            height={200}
-            width={200}
-            sizes="(max-width: 768px) 150px, 200px"
-          />
-        </Link>
-        <SectionTitle wide>Contact</SectionTitle>
-        <SectionText wide>
-          Send a message about the project. Maintainers will reply when they
-          can.
-        </SectionText>
-        <form
-          className="w-full lg:max-w-[80%] mx-auto relative mb-5 p-8 lg:p-0"
-          // eslint-disable-next-line react-hooks/refs -- react-hook-form submit handler factory
-          onSubmit={handleSubmit(onSubmit)}
-          {...contactWebMcp}
-        >
-          <div className="flex flex-col lg:flex-row">
-            <div className="flex flex-col mx-0 lg:w-4/12 lg:mx-4">
-              <label
-                htmlFor="contactName"
-                className="block m-1 text-lg leading-normal font-main font-light"
-              >
-                Name
-              </label>
-
-              <input
-                id="contactName"
-                className="block my-1 px-3 py-1.5 w-full rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
-                {...register("contactName")}
-                {...({
-                  toolparamdescription:
-                    "Full name of the sender or hiring manager (3-256 characters).",
-                } as Record<string, string>)}
-              />
-
-              <p className="block mx-1 h-6 text-sm leading-normal font-main font-normal text-red-500">
-                {errors.contactName?.message}
-              </p>
-
-              <label
-                htmlFor="contactEmail"
-                className="block m-1 text-lg leading-normal font-main font-light "
-              >
-                Email
-              </label>
-
-              <input
-                id="contactEmail"
-                className="block my-1 px-3 py-1.5 w-full rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
-                {...register("contactEmail")}
-                {...({
-                  toolparamdescription: "Valid email address for a reply.",
-                } as Record<string, string>)}
-              />
-
-              <p className="block mx-1 h-6 text-sm leading-normal font-main font-normal text-red-500">
-                {errors.contactEmail?.message}
-              </p>
-              {RECAPTCHA_API_KEY && (
-                <div className="my-5 flex justify-start lg:justify-end">
-                  {/* @ts-ignore */}
-                  <ReCAPTCHA
-                    theme="light"
-                    ref={recaptchaRef}
-                    sitekey={RECAPTCHA_API_KEY}
-                    onChange={() => setIsVerified(true)}
-                    onExpired={() => setIsVerified(false)}
-                    onErrored={() => setIsVerified(false)}
-                  />
-                </div>
-              )}
-            </div>
-            <div className="flex flex-col mx-0 lg:w-8/12 lg:mx-4">
-              <label
-                htmlFor="contactMessage"
-                className="block m-1 text-lg leading-normal font-main font-light"
-              >
-                Message
-              </label>
-
-              <textarea
-                id="contactMessage"
-                className="block my-1 px-3 py-1.5 w-full h-40 rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400 resize-none"
-                {...register("contactMessage")}
-                {...({
-                  toolparamdescription:
-                    "Contract description, job details, or inquiry text (3-1024 characters).",
-                } as Record<string, string>)}
-              ></textarea>
-
-              <p className="block mx-1 h-6 text-sm leading-normal font-main font-normal text-red-500">
-                {errors.contactMessage?.message}
-              </p>
-
-              <div className="flex flex-row justify-end lg:justify-start">
-                <button
-                  type="submit"
-                  className={cn(
-                    "flex items-center justify-center text-3xl font-light h-16 leading-5 mb-20 px-1.5 py-0.5 rounded-2xl w-36 font-main transition-colors duration-300 ease-out simple-3d-button-gradient",
-                    {
-                      // Primary state
-                      "bg-slate-400 text-neutral-600 hover:bg-slate-300 active:pt-0.5 active:pb-0.5 active:mt-1 active:mb-[76px] cursor-pointer":
-                        !buttonDisabled && !waiting && !isSent && !errorState,
-                      // Waiting state
-                      "bg-white text-neutral-500 cursor-not-allowed border border-neutral-300":
-                        !buttonDisabled && waiting,
-                      // Success state
-                      "bg-green-300 text-neutral-600 hover:bg-green-300 active:bg-slate-300 cursor-pointer":
-                        !buttonDisabled && isSent,
-                      // Error state
-                      "bg-red-300 text-neutral-600 hover:bg-red-300 cursor-not-allowed":
-                        errorState,
-                      // Disabled state
-                      "bg-neutral-300 text-neutral-500 cursor-not-allowed":
-                        buttonDisabled,
-                    }
-                  )}
-                  disabled={!!buttonDisabled}
+          <Link href="/" className="block mx-auto w-fit">
+            <Image
+              alt=""
+              className="mx-auto"
+              src="/images/logomin.svg"
+              height={200}
+              width={200}
+              sizes="(max-width: 768px) 150px, 200px"
+            />
+          </Link>
+          <SectionTitle wide>Contact</SectionTitle>
+          <SectionText wide>
+            Send a message about the project. Maintainers will reply when they
+            can.
+          </SectionText>
+          <form
+            className="w-full lg:max-w-[80%] mx-auto relative mb-5 p-8 lg:p-0"
+            // eslint-disable-next-line react-hooks/refs -- react-hook-form submit handler factory
+            onSubmit={handleSubmit(onSubmit)}
+            {...contactWebMcp}
+          >
+            <div className="flex flex-col lg:flex-row">
+              <div className="flex flex-col mx-0 lg:w-4/12 lg:mx-4">
+                <label
+                  htmlFor="contactName"
+                  className="block m-1 text-lg leading-normal font-main font-light"
                 >
-                  Send
-                </button>
-                {isSent && (
-                  <AiFillCheckCircle className="ml-4 h-16 text-3xl text-gray-800" />
-                )}
-                {waiting && (
-                  <AiOutlineLoading className="ml-4 h-16 text-3xl text-gray-800 animate-spin" />
-                )}
-                {errorState && (
-                  <AiFillCloseCircle className="ml-4 h-16 text-3xl text-gray-800" />
+                  Name
+                </label>
+
+                <input
+                  id="contactName"
+                  className="block my-1 px-3 py-1.5 w-full rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
+                  {...register("contactName")}
+                  {...({
+                    toolparamdescription:
+                      "Full name of the sender or hiring manager (3-256 characters).",
+                  } as Record<string, string>)}
+                />
+
+                <p className="block mx-1 h-6 text-sm leading-normal font-main font-normal text-red-500">
+                  {errors.contactName?.message}
+                </p>
+
+                <label
+                  htmlFor="contactEmail"
+                  className="block m-1 text-lg leading-normal font-main font-light "
+                >
+                  Email
+                </label>
+
+                <input
+                  id="contactEmail"
+                  className="block my-1 px-3 py-1.5 w-full rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
+                  {...register("contactEmail")}
+                  {...({
+                    toolparamdescription: "Valid email address for a reply.",
+                  } as Record<string, string>)}
+                />
+
+                <p className="block mx-1 h-6 text-sm leading-normal font-main font-normal text-red-500">
+                  {errors.contactEmail?.message}
+                </p>
+                {RECAPTCHA_API_KEY && (
+                  <div className="my-5 flex justify-start lg:justify-end">
+                    {/* @ts-ignore */}
+                    <ReCAPTCHA
+                      theme="light"
+                      ref={recaptchaRef}
+                      sitekey={RECAPTCHA_API_KEY}
+                      onChange={() => setIsVerified(true)}
+                      onExpired={() => setIsVerified(false)}
+                      onErrored={() => setIsVerified(false)}
+                    />
+                  </div>
                 )}
               </div>
+              <div className="flex flex-col mx-0 lg:w-8/12 lg:mx-4">
+                <label
+                  htmlFor="contactMessage"
+                  className="block m-1 text-lg leading-normal font-main font-light"
+                >
+                  Message
+                </label>
+
+                <textarea
+                  id="contactMessage"
+                  className="block my-1 px-3 py-1.5 w-full h-40 rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400 resize-none"
+                  {...register("contactMessage")}
+                  {...({
+                    toolparamdescription:
+                      "Contract description, job details, or inquiry text (3-1024 characters).",
+                  } as Record<string, string>)}
+                ></textarea>
+
+                <p className="block mx-1 h-6 text-sm leading-normal font-main font-normal text-red-500">
+                  {errors.contactMessage?.message}
+                </p>
+
+                <div className="flex flex-row justify-end lg:justify-start">
+                  <button
+                    type="submit"
+                    className={cn(
+                      "flex items-center justify-center text-3xl font-light h-16 leading-5 mb-20 px-1.5 py-0.5 rounded-2xl w-36 font-main transition-colors duration-300 ease-out simple-3d-button-gradient",
+                      {
+                        // Primary state
+                        "bg-slate-400 text-neutral-600 hover:bg-slate-300 active:pt-0.5 active:pb-0.5 active:mt-1 active:mb-[76px] cursor-pointer":
+                          !buttonDisabled && !waiting && !isSent && !errorState,
+                        // Waiting state
+                        "bg-white text-neutral-500 cursor-not-allowed border border-neutral-300":
+                          !buttonDisabled && waiting,
+                        // Success state
+                        "bg-green-300 text-neutral-600 hover:bg-green-300 active:bg-slate-300 cursor-pointer":
+                          !buttonDisabled && isSent,
+                        // Error state
+                        "bg-red-300 text-neutral-600 hover:bg-red-300 cursor-not-allowed":
+                          errorState,
+                        // Disabled state
+                        "bg-neutral-300 text-neutral-500 cursor-not-allowed":
+                          buttonDisabled,
+                      }
+                    )}
+                    disabled={!!buttonDisabled}
+                  >
+                    Send
+                  </button>
+                  {isSent && (
+                    <AiFillCheckCircle className="ml-4 h-16 text-3xl text-gray-800" />
+                  )}
+                  {waiting && (
+                    <AiOutlineLoading className="ml-4 h-16 text-3xl text-gray-800 animate-spin" />
+                  )}
+                  {errorState && (
+                    <AiFillCloseCircle className="ml-4 h-16 text-3xl text-gray-800" />
+                  )}
+                </div>
+              </div>
             </div>
-          </div>
-        </form>
-        <ButtonBar />
+          </form>
+          <ButtonBar />
         </div>
         <svg viewBox="0 0 1920 37" aria-hidden="true">
           <path
