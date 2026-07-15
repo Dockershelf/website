@@ -14,11 +14,15 @@ import {
 } from "react-icons/ai";
 import * as yup from "yup";
 
+import Image from "next/image";
+import Link from "next/link";
+
 import { JWT_SECRET, RECAPTCHA_API_KEY } from "@constants/constants";
 
 import { Section } from "@components/common/Layout/Section";
 import { SectionText } from "@components/common/Layout/SectionText";
 import { SectionTitle } from "@components/common/Layout/SectionTitle";
+import ButtonBar from "@components/Home/ButtonBar";
 
 const contactWebMcp = {
   toolname: "contactSite",
@@ -118,6 +122,17 @@ const Contact = ({ dark }: { dark?: boolean }) => {
         fullwidth
         className={cn("pb-0", dark ? "!bg-gray-5" : "")}
       >
+        <div className="w-full max-w-7xl mx-auto px-12">
+        <Link href="/" className="block mx-auto w-fit">
+          <Image
+            alt=""
+            className="mx-auto"
+            src="/images/logomin.svg"
+            height={200}
+            width={200}
+            sizes="(max-width: 768px) 150px, 200px"
+          />
+        </Link>
         <SectionTitle wide>Contact</SectionTitle>
         <SectionText wide>
           Send a message about the project. Maintainers will reply when they
@@ -217,7 +232,7 @@ const Contact = ({ dark }: { dark?: boolean }) => {
                       "bg-slate-400 text-neutral-600 hover:bg-slate-300 active:pt-0.5 active:pb-0.5 active:mt-1 active:mb-[76px] cursor-pointer":
                         !buttonDisabled && !waiting && !isSent && !errorState,
                       // Waiting state
-                      "bg-yellow-200 text-neutral-500 cursor-not-allowed":
+                      "bg-white text-neutral-500 cursor-not-allowed border border-neutral-300":
                         !buttonDisabled && waiting,
                       // Success state
                       "bg-green-300 text-neutral-600 hover:bg-green-300 active:bg-slate-300 cursor-pointer":
@@ -247,6 +262,8 @@ const Contact = ({ dark }: { dark?: boolean }) => {
             </div>
           </div>
         </form>
+        <ButtonBar />
+        </div>
         <svg viewBox="0 0 1920 37" aria-hidden="true">
           <path
             fill="#444"

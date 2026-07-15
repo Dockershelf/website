@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -7,6 +8,7 @@ import { Footer } from "@components/common/Layout/Footer";
 import { Heading } from "@components/common/Layout/Heading";
 import { HomeSiteHeader } from "@components/common/Layout/HomeSiteHeader";
 import { SubHeading } from "@components/common/Layout/SubHeading";
+import ButtonBar from "@components/Home/ButtonBar";
 import { listPublishedCategories } from "@lib/blog";
 import { FEATURE_BLOG } from "@lib/features";
 import { logError } from "@lib/logger";
@@ -29,7 +31,17 @@ export default async function BlogCategoryIndexPage() {
       <HomeSiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Container>
-          <article className="flex w-full flex-col pb-20 pt-15">
+          <article className="flex w-full flex-col items-center pt-15">
+            <Link href="/">
+              <Image
+                alt=""
+                className="mx-auto"
+                src="/images/logomin.svg"
+                height={200}
+                width={200}
+                sizes="(max-width: 768px) 150px, 200px"
+              />
+            </Link>
             <Heading>Categories</Heading>
             <SubHeading>Browse published posts by category.</SubHeading>
             <div className="mt-10">
@@ -50,6 +62,7 @@ export default async function BlogCategoryIndexPage() {
                 </ul>
               )}
             </div>
+            <ButtonBar />
           </article>
         </Container>
       </main>

@@ -15,7 +15,6 @@ export default function ContactPage() {
     <div className="w-full mx-auto bg-bright-gold min-h-screen">
       <HomeSiteHeader />
       <main id="main-content" tabIndex={-1}>
-        <div className="container pb-20"></div>
         <Contact />
       </main>
       <Footer />

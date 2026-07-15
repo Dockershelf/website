@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@lib/site-config";
@@ -8,6 +9,7 @@ import { Footer } from "@components/common/Layout/Footer";
 import { Heading } from "@components/common/Layout/Heading";
 import { HomeSiteHeader } from "@components/common/Layout/HomeSiteHeader";
 import { SubHeading } from "@components/common/Layout/SubHeading";
+import ButtonBar from "@components/Home/ButtonBar";
 
 export const metadata: Metadata = {
   title: `Install | ${siteConfig.name}`,
@@ -20,13 +22,23 @@ export default function InstallPage() {
       <HomeSiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Container>
-          <article className="flex flex-col w-full pt-15 pb-20">
+          <article className="flex flex-col items-center w-full pt-15">
+            <Link href="/">
+              <Image
+                alt=""
+                className="mx-auto"
+                src="/images/logomin.svg"
+                height={200}
+                width={200}
+                sizes="(max-width: 768px) 150px, 200px"
+              />
+            </Link>
             <Heading>Install / Quickstart</Heading>
             <SubHeading>
               Pull a Dockershelf image from Docker Hub, or use it as a base in
               your Dockerfile.
             </SubHeading>
-            <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80">
+            <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80 w-full lg:w-175 mx-auto">
               <ol className="list-decimal list-inside space-y-3">
                 <li>
                   Pull an image, for example{" "}
@@ -66,6 +78,7 @@ export default function InstallPage() {
                 .
               </p>
             </div>
+            <ButtonBar />
           </article>
         </Container>
       </main>

@@ -12,7 +12,7 @@ export const ButtonBarContainer: React.FC<DivProps> = ({
 }) => (
   <div
     className={cn(
-      "flex flex-col gap-4 justify-center items-center mx-auto",
+      "flex flex-col gap-4 justify-center items-center mx-auto mt-80",
       "lg:flex-row lg:gap-0",
       className
     )}

@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 import { siteConfig } from "@lib/site-config";
@@ -8,6 +9,7 @@ import { Footer } from "@components/common/Layout/Footer";
 import { Heading } from "@components/common/Layout/Heading";
 import { HomeSiteHeader } from "@components/common/Layout/HomeSiteHeader";
 import { SubHeading } from "@components/common/Layout/SubHeading";
+import ButtonBar from "@components/Home/ButtonBar";
 
 export const metadata: Metadata = {
   title: `Community | ${siteConfig.name}`,
@@ -22,13 +24,23 @@ export default function CommunityPage() {
       <HomeSiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Container>
-          <article className="flex flex-col w-full pt-15 pb-20">
+          <article className="flex flex-col items-center w-full pt-15">
+            <Link href="/">
+              <Image
+                alt=""
+                className="mx-auto"
+                src="/images/logomin.svg"
+                height={200}
+                width={200}
+                sizes="(max-width: 768px) 150px, 200px"
+              />
+            </Link>
             <Heading>Community / Contribute</Heading>
             <SubHeading>
               Join Discord, open issues, or send pull requests to keep the
               shelves useful.
             </SubHeading>
-            <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80">
+            <div className="mt-8 space-y-4 text-xl font-light leading-relaxed text-black/80 w-full lg:w-175 mx-auto">
               <p>
                 Chat on{" "}
                 <a
@@ -80,6 +92,7 @@ export default function CommunityPage() {
                 pages.
               </p>
             </div>
+            <ButtonBar />
           </article>
         </Container>
       </main>

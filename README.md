@@ -117,6 +117,27 @@ Full placeholder list: `.env.example`. Credentials stay in env / secrets manager
 | Sentry | Optional | `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` |
 | Disqus | Optional (blog comments) | `NEXT_PUBLIC_DISQUS_SHORTNAME`, `DISQUS_API_KEY` |
 
+## Provider consoles (bootstrap keys)
+
+Operator bookmarks for creating accounts, domains, and API keys when spinning a new site from this template. Forks should swap org/team URLs for their own. Put values in Netlify env (or `.env` locally) — never commit secrets.
+
+| Service | Console | What to create | Env / notes |
+| ------- | ------- | -------------- | ----------- |
+| **Sentry** | [Projects](https://luis-alejandro.sentry.io/projects/) | New project; copy DSN; auth token for source maps | `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` |
+| **Netlify** | [Team projects](https://app.netlify.com/teams/luisalejandro/projects) | New site; site ID + purge token | `NETLIFY_SITE_ID`, `NETLIFY_PURGE_TOKEN` |
+| **Cloudflare** | [Account home](https://dash.cloudflare.com/58a53988d28063e06cf06810da81e305/home) | Domain + DNS; API token (zone purge) | `CLOUDFLARE_ZONE_ID`, `CLOUDFLARE_API_TOKEN` |
+| **Neon** | [Org projects](https://console.neon.tech/app/org-floral-thunder-29668864/projects) | New project; pooled + unpooled connection strings | `DATABASE_URL`, `DATABASE_URL_UNPOOLED` (blog on) |
+| **Resend** | [API keys](https://resend.com/api-keys) | API key; verify sending domain | `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_FROM_NAME`, `CONTACT_TO` (contact on) |
+| **Mailchimp** | [Admin](https://us14.admin.mailchimp.com/) | Audience tag for this site; API key + list ID | `MAILCHIMP_*` (optional contact side effect) |
+| **Disqus** | [Profile / settings](https://disqus.com/home/settings/profile/) | Site shortname (+ API key if needed) | `NEXT_PUBLIC_DISQUS_SHORTNAME`, `DISQUS_API_KEY` |
+| **Google Analytics** | [Analytics](https://analytics.google.com/) | New GA4 property / measurement ID | `NEXT_PUBLIC_GA_MEASUREMENT_ID` |
+| **Google Ads** | [Select account](https://ads.google.com/nav/selectaccount) | New ad account (ops; not an app env var) | Link via Tag Manager — do not add AdSense publisher IDs |
+| **Tag Manager** | [Home](https://tagmanager.google.com/#/home) | Container; link Ads + Analytics | Measurement ID still lands in `NEXT_PUBLIC_GA_MEASUREMENT_ID` when you publish the tag |
+| **GitHub OAuth** | [Developer settings](https://github.com/settings/developers) | New OAuth App; callback `{BETTER_AUTH_URL}/api/auth/callback/github` | `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` (blog on); also set `BETTER_AUTH_*` |
+| **reCAPTCHA** | [Create](https://www.google.com/recaptcha/admin/create) | New reCAPTCHA site (keys for this domain) | `NEXT_PUBLIC_RECAPTCHA_API_KEY`, `RECAPTCHA_API_SECRET` (contact on) |
+
+Generate locally (no console): `BETTER_AUTH_SECRET`, `NEXT_PUBLIC_JWT_SECRET`, `REVALIDATE_SECRET`.
+
 ## Local development (Docker)
 
 ```bash

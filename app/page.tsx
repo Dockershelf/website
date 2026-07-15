@@ -15,7 +15,6 @@ import StyledLink from "@components/common/StyledLink";
 import ButtonBar from "@components/Home/ButtonBar";
 import { HomeContentSections } from "@components/Home/HomeContentSections";
 
-import Gallery from "@side-effects/Home/Gallery";
 
 export const metadata: Metadata = {
   title: siteConfig.name,
@@ -67,7 +66,6 @@ export default async function HomePage() {
                 <StyledLink href="/install">install guide</StyledLink>, or join
                 the <StyledLink href="/community">community</StyledLink>.
               </SubHeading>
-              <Gallery />
               <HomeContentSections />
               <ButtonBar />
             </div>

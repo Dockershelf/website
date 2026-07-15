@@ -179,7 +179,7 @@ export const metadata: Metadata = {
     "msapplication-square310x310logo": `${siteConfig.url}/favicon/mstile-310x310.png`,
     "msapplication-wide310x150logo": `${siteConfig.url}/favicon/mstile-310x150.png`,
     "msapplication-TileImage": `${siteConfig.url}/favicon/mstile-310x310.png`,
-    "msapplication-TileColor": "#f8d983",
+    "msapplication-TileColor": "#ffffff",
     "msapplication-config": `${siteConfig.url}/favicon/browserconfig.xml`,
     "fb:app_id": siteConfig.blog.fb_app_id,
   },
@@ -189,7 +189,7 @@ export const viewport = {
   width: "device-width",
   initialScale: 1.0,
   userScalable: true,
-  themeColor: "#f8d983",
+  themeColor: "#ffffff",
 };
 
 export default async function RootLayout({

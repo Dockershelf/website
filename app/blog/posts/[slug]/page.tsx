@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
@@ -7,6 +8,7 @@ import FriendlyDate from "@components/Blog/FriendlyDate";
 import { Container } from "@components/common/Layout/Container";
 import { Footer } from "@components/common/Layout/Footer";
 import { HomeSiteHeader } from "@components/common/Layout/HomeSiteHeader";
+import ButtonBar from "@components/Home/ButtonBar";
 import { getPublishedPostBySlug } from "@lib/blog";
 import { FEATURE_BLOG } from "@lib/features";
 import { logError } from "@lib/logger";
@@ -72,8 +74,18 @@ export default async function BlogPostPage({ params }: PageProps) {
       <HomeSiteHeader />
       <main id="main-content" tabIndex={-1}>
         <Container>
-          <article className="flex w-full flex-col pb-20 pt-15">
-            <p className="mb-4">
+          <article className="flex w-full flex-col items-center pt-15">
+            <Link href="/">
+              <Image
+                alt=""
+                className="mx-auto"
+                src="/images/logomin.svg"
+                height={200}
+                width={200}
+                sizes="(max-width: 768px) 150px, 200px"
+              />
+            </Link>
+            <p className="mb-4 w-full">
               <Link
                 href="/blog"
                 className="text-base font-light text-black/60 underline hover:text-black"
@@ -111,6 +123,7 @@ export default async function BlogPostPage({ params }: PageProps) {
                 title={post.title}
               />
             ) : null}
+            <ButtonBar />
           </article>
         </Container>
       </main>
