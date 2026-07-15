@@ -1,6 +1,6 @@
 {
   "name": "dockershelf-website",
-  "version": "3.2.9",
+  "version": "0.1.0",
   "description": "Dockershelf website: landing for lightweight Docker images with optional blog and contact modules",
   "author": "Luis Alejandro <luis@luisalejandro.org>",
   "license": "GPL-3.0-or-later",
