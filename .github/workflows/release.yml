@@ -26,6 +26,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-npm-
 
+      - name: Ensure npm cache dir exists
+        run: mkdir -p ~/.npm
+
       - name: Restore node_modules cache
         uses: actions/cache@v6
         with:
