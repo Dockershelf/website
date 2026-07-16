@@ -358,7 +358,7 @@ const config: NextConfig = {
           destination: "/markdown-twin",
         },
         {
-          source: "/:path((?!(?:_next|api|\\.well-known)).*)\\.md",
+          source: "/:path((?!(?:_next|api|\\.well-known|agents)).*)\\.md",
           destination: "/markdown-twin/:path",
         },
       ],
