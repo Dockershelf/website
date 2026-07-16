@@ -9,13 +9,6 @@
       "sha256": "84095f7353602a5a972d913f54ac56c7cb2b7e6be64634fe7bd5cc159c2a7e0e"
     },
     {
-      "name": "blog-search",
-      "type": "skill-md",
-      "description": "Read-only blog post search via GET /api/search-posts?q= (128 character query cap).",
-      "url": "https://dockershelf.com/.well-known/agent-skills/blog-search/SKILL.md",
-      "sha256": "8e128e8e13e8e1283bdbbca28a2a9b195bf172dda3a57910b90db5e2ccf069d2"
-    },
-    {
       "name": "citation",
       "type": "skill-md",
       "description": "Citation and attribution rules for Dockershelf content in AI answers.",
