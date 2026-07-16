@@ -7,7 +7,7 @@
     "title": "Dockershelf — Read-only Agent API",
     "version": "0.1.1"
   },
-  "description": "Read-only discovery for Dockershelf. No authenticated or transactional tools.",
+  "description": "Read-only discovery and blog search for Dockershelf. No authenticated or transactional tools.",
   "documentationUrl": "https://dockershelf.com/agents.md",
   "transport": {
     "type": "streamable-http",
@@ -21,6 +21,37 @@
     "schemes": []
   },
   "tools": [
+    {
+      "name": "search_blog_posts",
+      "title": "Search blog posts",
+      "description": "Search published blog posts by title, teaser, or category. Read-only; max query length 128 characters.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "q": {
+            "type": "string",
+            "description": "Search query",
+            "maxLength": 128
+          }
+        }
+      }
+    },
+    {
+      "name": "get_latest_posts",
+      "title": "Get latest blog posts",
+      "description": "Returns the most recent published blog posts (read-only).",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "limit": {
+            "type": "number",
+            "description": "Number of posts to return (default: 5, max: 20)",
+            "minimum": 1,
+            "maximum": 20
+          }
+        }
+      }
+    },
     {
       "name": "get_site_discovery",
       "title": "Site discovery metadata",

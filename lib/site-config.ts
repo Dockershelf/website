@@ -35,8 +35,17 @@ const DEFAULT_CANONICAL =
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://dockershelf.com";
 
-export const canonicalHostnameUrl =
-  ENV_NAME === "local" ? "http://localhost:3101" : DEFAULT_CANONICAL;
+/**
+ * Localhost is only valid when explicitly running a local dev environment.
+ * Gate on both NEXT_PUBLIC_ENV_NAME=local AND NODE_ENV !== "production" so a
+ * misconfigured env var can never leak localhost into a production build.
+ */
+const isLocalEnv =
+  ENV_NAME === "local" && process.env.NODE_ENV !== "production";
+
+export const canonicalHostnameUrl = isLocalEnv
+  ? "http://localhost:3101"
+  : DEFAULT_CANONICAL;
 
 export const SITE_PROFILE_DATE_CREATED =
   process.env.SITE_PROFILE_DATE_CREATED || "2016-06-08T00:00:00+00:00";
