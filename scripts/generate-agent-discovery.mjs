@@ -12,7 +12,7 @@ const CANONICAL_URL =
   process.env.CANONICAL_SITE_URL ||
   process.env.NEXT_PUBLIC_SITE_URL ||
   "https://dockershelf.com";
-const SITE_NAME = process.env.SITE_NAME || "Dockershelf";
+const SITE_NAME = process.env.APP_SITE_NAME || "Dockershelf";
 const FEATURE_BLOG = process.env.FEATURE_BLOG === "1";
 
 const AGENT_SKILLS_INDEX_SCHEMA =

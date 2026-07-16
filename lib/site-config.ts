@@ -44,7 +44,7 @@ export const SITE_PROFILE_DATE_MODIFIED =
   process.env.SITE_PROFILE_DATE_MODIFIED || "2026-07-11T00:00:00+00:00";
 
 export const siteConfig: SiteConfig = {
-  name: process.env.SITE_NAME || "Dockershelf",
+  name: process.env.APP_SITE_NAME || "Dockershelf",
   app_name: process.env.SITE_APP_NAME || "Dockershelf",
   description:
     process.env.SITE_DESCRIPTION ||

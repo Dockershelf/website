@@ -155,7 +155,7 @@ const Contact = ({ dark }: { dark?: boolean }) => {
 
                 <input
                   id="contactName"
-                  className="block my-1 px-3 py-1.5 w-full rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
+                  className="block my-1 px-3 py-1.5 w-full rounded-xl bg-gray-100 border-transparent text-lg leading-normal font-main font-light focus:bg-gray-200 focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
                   {...register("contactName")}
                   {...({
                     toolparamdescription:
@@ -176,7 +176,7 @@ const Contact = ({ dark }: { dark?: boolean }) => {
 
                 <input
                   id="contactEmail"
-                  className="block my-1 px-3 py-1.5 w-full rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
+                  className="block my-1 px-3 py-1.5 w-full rounded-xl bg-gray-100 border-transparent text-lg leading-normal font-main font-light focus:bg-gray-200 focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400"
                   {...register("contactEmail")}
                   {...({
                     toolparamdescription: "Valid email address for a reply.",
@@ -210,7 +210,7 @@ const Contact = ({ dark }: { dark?: boolean }) => {
 
                 <textarea
                   id="contactMessage"
-                  className="block my-1 px-3 py-1.5 w-full h-40 rounded-xl bg-white border-transparent text-lg leading-normal font-main font-light focus:bg-white focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400 resize-none"
+                  className="block my-1 px-3 py-1.5 w-full h-40 rounded-xl bg-gray-100 border-transparent text-lg leading-normal font-main font-light focus:bg-gray-200 focus:ring-2 focus:ring-neutral-300 focus:border-neutral-400 resize-none"
                   {...register("contactMessage")}
                   {...({
                     toolparamdescription:

@@ -6,9 +6,15 @@ export type ProofPoint = {
   context: string;
 };
 
+export type FaqAnswerSegment =
+  | { type: "text"; value: string }
+  | { type: "bold"; value: string }
+  | { type: "command"; value: string }
+  | { type: "link"; href: string; value: string };
+
 export type FaqItem = {
   question: string;
-  answer: string;
+  answer: FaqAnswerSegment[];
 };
 
 export type HomeGalleryImage = {
@@ -52,22 +58,80 @@ export const proofPoints: ProofPoint[] = [
 export const faqItems: FaqItem[] = [
   {
     question: "What is Dockershelf?",
-    answer:
-      "An open-source collector of lightweight Docker images for Debian, Python, Node, Go, and LaTeX. Pull from Docker Hub or use them as base images in your own Dockerfiles.",
+    answer: [
+      {
+        type: "text",
+        value:
+          "An open-source collector of lightweight Docker images for Debian, Python, Node, Go, and LaTeX. ",
+      },
+      {
+        type: "bold",
+        value: "Pull from Docker Hub",
+      },
+      {
+        type: "text",
+        value: " or use them as base images in your own Dockerfiles.",
+      },
+    ],
   },
   {
     question: "Stable or unstable — which should I use?",
-    answer:
-      "Prefer stable (Debian stable–based) for production. Prefer unstable (Debian sid–based) when you need the newest language or package versions during development. Debian and LaTeX shelves follow their own tagging rules.",
+    answer: [
+      {
+        type: "bold",
+        value: "Prefer stable",
+      },
+      {
+        type: "text",
+        value: " (Debian stable–based) for production. ",
+      },
+      {
+        type: "bold",
+        value: "Prefer unstable",
+      },
+      {
+        type: "text",
+        value:
+          " (Debian sid–based) when you need the newest language or package versions during development. Debian and LaTeX shelves follow their own tagging rules.",
+      },
+    ],
   },
   {
     question: "How do I pull an image?",
-    answer:
-      "Use docker pull dockershelf/<shelf>:<tag>, for example docker pull dockershelf/python:3.13-stable, then run it or FROM it in a Dockerfile.",
+    answer: [
+      { type: "text", value: "Use " },
+      { type: "command", value: "docker pull dockershelf/<shelf>:<tag>" },
+      { type: "text", value: ", for example " },
+      {
+        type: "command",
+        value: "docker pull dockershelf/python:3.13-stable",
+      },
+      { type: "text", value: ", then run it or " },
+      { type: "command", value: "FROM" },
+      { type: "text", value: " it in a Dockerfile." },
+    ],
   },
   {
     question: "Where do I contribute?",
-    answer: `Visit ${siteConfig.url}/community for Discord, issues, and contribution pointers, or open a PR on the Dockershelf GitHub repository.`,
+    answer: [
+      { type: "text", value: "Visit the " },
+      {
+        type: "link",
+        href: `${siteConfig.url}/community`,
+        value: "community page",
+      },
+      {
+        type: "text",
+        value:
+          " for Discord, issues, and contribution pointers, or open a PR on the ",
+      },
+      {
+        type: "link",
+        href: "https://github.com/Dockershelf/dockershelf",
+        value: "Dockershelf GitHub repository",
+      },
+      { type: "text", value: "." },
+    ],
   },
 ];
 

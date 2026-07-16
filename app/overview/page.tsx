@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
+import { fetchImageCatalog } from "@lib/images/catalog";
 import { siteConfig } from "@lib/site-config";
 
 import { Container } from "@components/common/Layout/Container";
@@ -10,13 +11,16 @@ import { Heading } from "@components/common/Layout/Heading";
 import { HomeSiteHeader } from "@components/common/Layout/HomeSiteHeader";
 import { SubHeading } from "@components/common/Layout/SubHeading";
 import ButtonBar from "@components/Home/ButtonBar";
+import { ImageCatalog } from "@components/Overview/ImageCatalog";
 
 export const metadata: Metadata = {
   title: `Overview | ${siteConfig.name}`,
   description: `What ${siteConfig.name} is and who it is for.`,
 };
 
-export default function OverviewPage() {
+export default async function OverviewPage() {
+  const catalog = await fetchImageCatalog();
+
   return (
     <>
       <HomeSiteHeader />
@@ -57,6 +61,7 @@ export default function OverviewPage() {
                 page to contribute.
               </p>
             </div>
+            <ImageCatalog catalog={catalog} />
             <ButtonBar />
           </article>
         </Container>
