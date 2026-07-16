@@ -2,7 +2,7 @@
 
 Marketing site for [Dockershelf](https://github.com/Dockershelf/dockershelf) — lightweight Docker images for Debian, Python, Node, Go, and LaTeX. Built from the hybrid site template: always-on landing, optional Neon-backed blog with GitHub OAuth admin, optional contact via Resend. AI/LLM discovery and CDN cache headers stay parametrized by site identity and feature flags.
 
-Current version: 0.1.0
+Current version: 0.1.1
 
 ## Stack
 
