@@ -47,8 +47,8 @@ rosey/design-system/
 rosey/qa/
 rosey/deepening/
 rosey/agentic-env.json
-AGENTS.md
-DESIGN.md
+/AGENTS.md
+/DESIGN.md
 
 # Rosey Maintainer Tools
 rosey/maintainer-manifest.json
