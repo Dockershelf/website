@@ -1,12 +1,3 @@
-import * as jose from "jose";
-
-import bcrypt from "bcrypt";
-
-import jwt from "jsonwebtoken";
-
-import { TextEncoder } from "util";
-
-import { JWT_SECRET } from "@constants/constants";
 import { logError } from "@lib/logger";
 
 export const isSchemaValid = async (schema: any, body: any) => {
@@ -17,67 +8,4 @@ export const isSchemaValid = async (schema: any, body: any) => {
     logError("isSchemaValid", error);
     return false;
   }
-};
-
-export const isAuthorizationValid = async (header: any, body: any) => {
-  try {
-    const secret = new TextEncoder().encode(JWT_SECRET);
-    const jwt = header.replace("Bearer ", "");
-    const { payload } = await jose.jwtVerify(jwt, secret, {
-      issuer: "site-template",
-      audience: "private",
-    });
-    // Compare form fields only — JWT also carries iss/aud/iat/exp.
-    const formFields = [
-      "contactName",
-      "contactEmail",
-      "contactMessage",
-      "token",
-    ] as const;
-    const status = formFields.every(
-      (key) =>
-        String((payload as Record<string, unknown>)[key] ?? "") ===
-        String(body?.[key] ?? "")
-    );
-    return status;
-  } catch (error) {
-    logError("isAuthorizationValid", error);
-    return false;
-  }
-};
-
-export const compare = async (param1: any, param2: any) => {
-  return new Promise((resolve, reject) => {
-    bcrypt.compare(param1, param2, (err: any, res: any) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(res);
-      }
-    });
-  })
-    .then(() => {
-      return true;
-    })
-    .catch(() => {
-      return false;
-    });
-};
-
-export const verify = async (token: any, key: any) => {
-  return new Promise((resolve, reject) => {
-    jwt.verify(token, key, (err: any, res: any) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(res);
-      }
-    });
-  })
-    .then((res) => {
-      return res;
-    })
-    .catch(() => {
-      return null;
-    });
 };

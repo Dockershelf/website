@@ -4,7 +4,7 @@ import * as yup from "yup";
 import { initLeadWorkflow, verifyCaptcha } from "@lib/contactForm";
 import { FEATURE_CONTACT } from "@lib/features";
 import { logError } from "@lib/logger";
-import { isAuthorizationValid, isSchemaValid } from "@lib/utils";
+import { isSchemaValid } from "@lib/utils";
 
 export async function POST(request: NextRequest) {
   if (!FEATURE_CONTACT) {
@@ -22,21 +22,6 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json();
-    const authHeader = request.headers.get("authorization");
-
-    if (!authHeader) {
-      return NextResponse.json(
-        { error: "Missing authorization header" },
-        { status: 400 }
-      );
-    }
-
-    if (!(await isAuthorizationValid(authHeader, body))) {
-      return NextResponse.json(
-        { error: "Invalid authorization" },
-        { status: 401 }
-      );
-    }
 
     if (!(await isSchemaValid(schema, body))) {
       return NextResponse.json({ error: "Invalid body" }, { status: 400 });

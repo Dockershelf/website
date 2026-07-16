@@ -3,7 +3,6 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import axios from "axios";
 import cn from "classnames";
-import * as jose from "jose";
 import { useRef, useState } from "react";
 import ReCAPTCHA from "react-google-recaptcha";
 import { useForm } from "react-hook-form";
@@ -17,7 +16,7 @@ import * as yup from "yup";
 import Image from "next/image";
 import Link from "next/link";
 
-import { JWT_SECRET, RECAPTCHA_API_KEY } from "@constants/constants";
+import { RECAPTCHA_API_KEY } from "@constants/constants";
 
 import { Section } from "@components/common/Layout/Section";
 import { SectionText } from "@components/common/Layout/SectionText";
@@ -80,22 +79,8 @@ const Contact = ({ dark }: { dark?: boolean }) => {
   const sendForm = async (data: any) => {
     try {
       const token = await recaptchaRef.current.getValue();
-      const secret = new TextEncoder().encode(JWT_SECRET);
-      const jwt = await new jose.SignJWT({ ...data, token })
-        .setProtectedHeader({ alg: "HS256" })
-        .setIssuedAt()
-        .setIssuer("site-template")
-        .setAudience("private")
-        .setExpirationTime("10m")
-        .sign(secret);
 
-      const response = await axios.post(
-        "/api/contact",
-        { ...data, token },
-        {
-          headers: { authorization: `Bearer ${jwt}` },
-        }
-      );
+      const response = await axios.post("/api/contact", { ...data, token });
       if (response.data.sent) {
         return true;
       } else {

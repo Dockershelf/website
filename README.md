@@ -76,7 +76,7 @@ Admin UI: `/admin` (allowlisted session only). Draft preview stays under `/admin
 ## Contact on
 
 1. Verify a Resend sending domain. Set `RESEND_API_KEY`, `EMAIL_FROM`, `EMAIL_FROM_NAME`, `CONTACT_TO`.
-2. Set reCAPTCHA: `NEXT_PUBLIC_RECAPTCHA_API_KEY`, `RECAPTCHA_API_SECRET`, and `NEXT_PUBLIC_JWT_SECRET` (contact form token signing).
+2. Set reCAPTCHA: `NEXT_PUBLIC_RECAPTCHA_API_KEY` and `RECAPTCHA_API_SECRET`.
 3. Flip flags:
 
 ```bash
@@ -112,7 +112,7 @@ Full placeholder list: `.env.example`. Credentials stay in env / secrets manager
 | ---- | ------------- | ------------- |
 | Site identity | Always | `SITE_*`, `CANONICAL_SITE_URL`, `NEXT_PUBLIC_SITE_URL`, `NEXT_PUBLIC_ENV_NAME` |
 | Blog | `FEATURE_BLOG=1` | `DATABASE_URL`, `DATABASE_URL_UNPOOLED`, `BETTER_AUTH_*`, `GITHUB_*`, `ADMIN_EMAIL_ALLOWLIST` |
-| Contact | `FEATURE_CONTACT=1` | `RESEND_*` / `EMAIL_*` / `CONTACT_TO`, reCAPTCHA, `NEXT_PUBLIC_JWT_SECRET` |
+| Contact | `FEATURE_CONTACT=1` | `RESEND_*` / `EMAIL_*` / `CONTACT_TO`, reCAPTCHA |
 | Cache purge | Deploy with revalidate | `REVALIDATE_SECRET`, `NETLIFY_*` and/or `CLOUDFLARE_*` |
 | Sentry | Optional | `SENTRY_DSN`, `NEXT_PUBLIC_SENTRY_DSN`, `SENTRY_AUTH_TOKEN`, `SENTRY_ORG`, `SENTRY_PROJECT` |
 | Disqus | Optional (blog comments) | `NEXT_PUBLIC_DISQUS_SHORTNAME`, `DISQUS_API_KEY` |
@@ -136,7 +136,7 @@ Operator bookmarks for creating accounts, domains, and API keys when spinning a 
 | **GitHub OAuth** | [Developer settings](https://github.com/settings/developers) | New OAuth App; callback `{BETTER_AUTH_URL}/api/auth/callback/github` | `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET` (blog on); also set `BETTER_AUTH_*` |
 | **reCAPTCHA** | [Create](https://www.google.com/recaptcha/admin/create) | New reCAPTCHA site (keys for this domain) | `NEXT_PUBLIC_RECAPTCHA_API_KEY`, `RECAPTCHA_API_SECRET` (contact on) |
 
-Generate locally (no console): `BETTER_AUTH_SECRET`, `NEXT_PUBLIC_JWT_SECRET`, `REVALIDATE_SECRET`.
+Generate locally (no console): `BETTER_AUTH_SECRET`, `REVALIDATE_SECRET`.
 
 ## Local development (Docker)
 
