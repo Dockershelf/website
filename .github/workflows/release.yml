@@ -43,12 +43,7 @@ jobs:
           echo "GID=$(id -g)" >> $GITHUB_ENV
           echo "PROJECT_NAME=hybrid-site-template" >> $GITHUB_ENV
           echo "DOCKER_IMAGE=hybrid-site-template:latest" >> $GITHUB_ENV
-
-      - name: Prepare CI environment file
-        run: |
-          if [ -f .env.example ]; then
-            cp .env.example .env
-          fi
+          cp .env.example .env
 
       - name: Build Docker image
         run: make image
