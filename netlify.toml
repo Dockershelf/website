@@ -11,6 +11,7 @@
 
 [build.environment]
   NODE_VERSION = "22"
+  NODE_OPTIONS = "--max-old-space-size=4096"
   # Optional: reduce client errors during rolling deploys (set in Netlify UI if preferred)
   # NETLIFY_NEXT_SKEW_PROTECTION = "true"
 
